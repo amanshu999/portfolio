@@ -11,7 +11,7 @@ export interface Project {
   githubLink?: string;
   liveLink?: string;
   image?: string;
-  status: 'completed' | 'in-progress' | 'coming-soon';
+  status: "completed" | "in-progress" | "coming-soon";
 }
 
 export interface Skill {
@@ -25,7 +25,7 @@ export interface TimelineItem {
   subtitle: string;
   date: string;
   description: string;
-  type: 'education' | 'experience';
+  type: "education" | "experience";
 }
 
 // ============================================================
@@ -37,36 +37,39 @@ export const profile = {
   name: "Amanshu Sharma",
   firstName: "Amanshu",
   lastName: "Sharma",
-  
+
   // ✏️ Taglines (shown as rotating text in hero)
-  taglines: [
-    "Computer Engineering Student",
-    "Web Developer",
-    "Python Programmer",
-    "Creative Coder"
-  ],
-  
+  taglines: ["Computer Engineering Student", "Web Developer", "Python Programmer", "Creative Coder"],
+
   // ✏️ Bio (shown in hero section)
   bio: "Passionate about creating innovative web experiences and exploring the intersection of technology and creativity. Currently pursuing my diploma while building projects that push boundaries.",
-  
+
   // ✏️ Education & Experience Summary
   education: "Diploma in Computer Engineering",
   experience: "Fresher",
-  
+
   // ✏️ Contact & Social Links
   email: "amanshusharma999@gmail.com",
   github: "https://github.com/amanshu999",
   linkedin: "", // Leave empty if not available
-  twitter: "",  // Leave empty if not available
-  
+  twitter: "", // Leave empty if not available
+
+  // ✏️ EmailJS Configuration (Get these from https://www.emailjs.com)
+  // 1. Create account → 2. Add Email Service → 3. Create Template → 4. Get Public Key
+  emailjs: {
+    serviceId: "service_kq17n1e", // ✏️ Replace with your EmailJS Service ID
+    templateId: "template_sny9zmh", // ✏️ Replace with your EmailJS Template ID
+    publicKey: "lgNqCj4fkJkyGbHm1", // ✏️ Replace with your EmailJS Public Key
+  },
+
   // ✏️ SKILLS - Add/remove skills here (level: 0-100)
   skills: [
     { name: "HTML", level: 85 },
     { name: "CSS", level: 80 },
     { name: "JavaScript", level: 75 },
-    { name: "Python", level: 70 }
+    { name: "Python", level: 70 },
   ] as Skill[],
-  
+
   // ✏️ PROJECTS - Add your projects here
   // Each project will auto-render as a card
   // Set status: 'completed' | 'in-progress' | 'coming-soon'
@@ -76,24 +79,24 @@ export const profile = {
       title: "Coming Soon",
       description: "An exciting project is in development. Stay tuned for something amazing!",
       techStack: ["HTML", "CSS", "JavaScript"],
-      status: "coming-soon"
+      status: "coming-soon",
     },
     {
-      id: "2", 
+      id: "2",
       title: "Project Loading...",
       description: "New project will be added here. Check back soon!",
       techStack: ["Python"],
-      status: "coming-soon"
+      status: "coming-soon",
     },
     {
       id: "3",
       title: "Future Project",
       description: "Something incredible is brewing. Watch this space!",
       techStack: ["React", "Node.js"],
-      status: "coming-soon"
-    }
+      status: "coming-soon",
+    },
   ] as Project[],
-  
+
   // ✏️ TIMELINE - Education & Experience entries
   timeline: [
     {
@@ -102,7 +105,7 @@ export const profile = {
       subtitle: "Pursuing",
       date: "Present",
       description: "Learning core computer science concepts, programming fundamentals, and software development.",
-      type: "education"
+      type: "education",
     },
     {
       id: "2",
@@ -110,9 +113,9 @@ export const profile = {
       subtitle: "Ready to Start",
       date: "2024",
       description: "Eager to apply my skills in a professional environment and contribute to innovative projects.",
-      type: "experience"
-    }
-  ] as TimelineItem[]
+      type: "experience",
+    },
+  ] as TimelineItem[],
 };
 
 // ============================================================
