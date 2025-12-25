@@ -6,6 +6,30 @@ import { NeonButton } from './NeonButton';
 import { GlassCard } from './GlassCard';
 import { Github, Mail, Send, Linkedin, Twitter } from 'lucide-react';
 import { toast } from 'sonner';
+import emailjs from "emailjs-com";
+
+const sendEmail = (e) => {
+  e.preventDefault();
+
+  emailjs
+    .sendForm(
+      "service_ie748bs",
+      "template_siu0jc8",
+      e.target,
+      "lgNqCj4fkJkyGbHm1"
+    )
+    .then(
+      () => {
+        alert("Message sent successfully!");
+        e.target.reset();
+      },
+      (error) => {
+        alert("Something went wrong. Try again.");
+        console.log(error);
+      }
+    );
+};
+
 
 export const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -15,20 +39,20 @@ export const ContactSection = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
+  //   // Simulate form submission
+  //   await new Promise(resolve => setTimeout(resolve, 1500));
     
-    toast.success('Message sent successfully!', {
-      description: 'Thank you for reaching out. I\'ll get back to you soon!',
-    });
+  //   toast.success('Message sent successfully!', {
+  //     description: 'Thank you for reaching out. I\'ll get back to you soon!',
+  //   });
     
-    setFormData({ name: '', email: '', message: '' });
-    setIsSubmitting(false);
-  };
+  //   setFormData({ name: '', email: '', message: '' });
+  //   setIsSubmitting(false);
+  // };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({
@@ -79,7 +103,7 @@ export const ContactSection = () => {
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
           {/* Contact Form */}
           <GlassCard glowColor="primary" hover={false} className="p-8">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={sendEmail} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-orbitron text-foreground mb-2">
                   Name
@@ -87,7 +111,7 @@ export const ContactSection = () => {
                 <input
                   type="text"
                   id="name"
-                  name="name"
+                  name="user_name"
                   value={formData.name}
                   onChange={handleChange}
                   required
@@ -106,7 +130,7 @@ export const ContactSection = () => {
                 <input
                   type="email"
                   id="email"
-                  name="email"
+                  name="user_email"
                   value={formData.email}
                   onChange={handleChange}
                   required
