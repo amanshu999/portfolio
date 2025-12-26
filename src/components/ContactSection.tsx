@@ -16,6 +16,8 @@ export const ContactSection = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbzAmRVK4V8rLj7Y-2txXK1v0brWTeA7ondBzl4UFXnZZ8V1N1ck60snft5YKdyK8t_R9Q/exec';
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -32,19 +34,37 @@ export const ContactSection = () => {
     }
 
     try {
-      await emailjs.send(serviceId, templateId, {
+      // Send to EmailJS
+      const emailPromise = emailjs.send(serviceId, templateId, {
         from_name: formData.name,
         from_email: formData.email,
         message: formData.message,
         to_email: profile.email,
       }, publicKey);
 
+      // Save to Google Sheet
+      const sheetPromise = fetch(GOOGLE_SHEET_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          timestamp: new Date().toISOString(),
+        }),
+      });
+
+      await Promise.all([emailPromise, sheetPromise]);
+
       toast.success('Message sent successfully!', {
         description: 'Thank you for reaching out. I\'ll get back to you soon!',
       });
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
-      console.error('EmailJS error:', error);
+      console.error('Submission error:', error);
       toast.error('Failed to send message', {
         description: 'Please try again or email me directly.',
       });
