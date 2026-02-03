@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 interface NeonButtonProps {
   children: ReactNode;
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'sm' | 'md' | 'lg' | 'icon';
   glow?: boolean;
   className?: string;
   onClick?: () => void;
@@ -12,8 +12,8 @@ interface NeonButtonProps {
   type?: 'button' | 'submit' | 'reset';
 }
 
-export const NeonButton = ({ 
-  children, 
+export const NeonButton = ({
+  children,
   variant = 'primary',
   size = 'md',
   glow = true,
@@ -33,6 +33,7 @@ export const NeonButton = ({
     sm: 'px-4 py-2 text-sm',
     md: 'px-6 py-3 text-base',
     lg: 'px-8 py-4 text-lg',
+    icon: 'p-3',
   };
 
   const variantStyles = {
@@ -68,7 +69,7 @@ export const NeonButton = ({
     >
       {/* Shine effect */}
       <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full hover:translate-x-full transition-transform duration-700" />
-      
+
       {/* Content */}
       <span className="relative z-10 flex items-center justify-center gap-2">
         {children}
