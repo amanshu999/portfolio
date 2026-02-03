@@ -3,7 +3,7 @@ import { profile } from '@/data/profile';
 import { NeonText } from './NeonText';
 import { NeonButton } from './NeonButton';
 import { Typewriter } from './Typewriter';
-import { ChevronDown, Github } from 'lucide-react';
+import { ChevronDown, Github, FileText } from 'lucide-react';
 
 export const HeroSection = () => {
   const scrollToSection = (id: string) => {
@@ -15,10 +15,10 @@ export const HeroSection = () => {
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 grid-pattern pointer-events-none" />
-      
+
       {/* Radial gradient overlay */}
       <div className="absolute inset-0 bg-gradient-radial from-primary/10 via-transparent to-transparent pointer-events-none" />
-      
+
       <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
           {/* Welcome badge */}
@@ -51,8 +51,8 @@ export const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="mb-8"
           >
-            <Typewriter 
-              texts={profile.taglines} 
+            <Typewriter
+              texts={profile.taglines}
               className="text-xl md:text-2xl"
             />
           </motion.div>
@@ -74,25 +74,36 @@ export const HeroSection = () => {
             transition={{ duration: 0.6, delay: 1 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <NeonButton 
-              variant="primary" 
-              size="lg" 
+            <NeonButton
+              variant="primary"
+              size="lg"
               onClick={() => scrollToSection('skills')}
             >
               View Skills
             </NeonButton>
-            
-            <NeonButton 
-              variant="outline" 
+
+            <NeonButton
+              variant="outline"
               size="lg"
               onClick={() => scrollToSection('contact')}
             >
               Contact Me
             </NeonButton>
-            
-            <a 
-              href={profile.github} 
-              target="_blank" 
+
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <NeonButton variant="outline" size="lg">
+                <FileText className="w-5 h-5" />
+                Resume
+              </NeonButton>
+            </a>
+
+            <a
+              href={profile.github}
+              target="_blank"
               rel="noopener noreferrer"
             >
               <NeonButton variant="ghost" size="lg">
