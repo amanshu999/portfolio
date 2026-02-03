@@ -1,0 +1,359 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+  ============================================
+  🎨 CYBERPUNK NEON DESIGN SYSTEM
+  ============================================
+  All colors MUST be HSL format
+*/
+
+@layer base {
+  :root {
+    /* Core Background - Deep Space Black */
+    --background: 240 20% 3%;
+    --foreground: 210 40% 98%;
+
+    /* Card - Glassmorphism Dark */
+    --card: 240 20% 6%;
+    --card-foreground: 210 40% 98%;
+
+    /* Popover */
+    --popover: 240 20% 5%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Primary - Neon Purple */
+    --primary: 270 100% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 270 100% 70%;
+
+    /* Secondary - Electric Blue */
+    --secondary: 210 100% 55%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-glow: 210 100% 65%;
+
+    /* Accent - Cyan */
+    --accent: 180 100% 50%;
+    --accent-foreground: 240 20% 5%;
+    --accent-glow: 180 100% 60%;
+
+    /* Tertiary - Neon Pink */
+    --tertiary: 320 100% 60%;
+    --tertiary-foreground: 0 0% 100%;
+    --tertiary-glow: 320 100% 70%;
+
+    /* Muted */
+    --muted: 240 15% 15%;
+    --muted-foreground: 240 10% 60%;
+
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Border & Input */
+    --border: 240 20% 20%;
+    --input: 240 20% 15%;
+    --ring: 270 100% 60%;
+
+    --radius: 1rem;
+
+    /* Sidebar */
+    --sidebar-background: 240 20% 5%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 270 100% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 20% 12%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 240 20% 15%;
+    --sidebar-ring: 270 100% 60%;
+
+    /* Custom Glow Variables */
+    --glow-primary: 0 0 20px hsl(270 100% 60% / 0.5), 0 0 40px hsl(270 100% 60% / 0.3);
+    --glow-secondary: 0 0 20px hsl(210 100% 55% / 0.5), 0 0 40px hsl(210 100% 55% / 0.3);
+    --glow-accent: 0 0 20px hsl(180 100% 50% / 0.5), 0 0 40px hsl(180 100% 50% / 0.3);
+    --glow-tertiary: 0 0 20px hsl(320 100% 60% / 0.5), 0 0 40px hsl(320 100% 60% / 0.3);
+    --glow-intense: 0 0 30px hsl(270 100% 60% / 0.6), 0 0 60px hsl(270 100% 60% / 0.4), 0 0 90px hsl(270 100% 60% / 0.2);
+
+    /* Gradients */
+    --gradient-neon: linear-gradient(135deg, hsl(270 100% 60%), hsl(210 100% 55%), hsl(180 100% 50%));
+    --gradient-purple-blue: linear-gradient(135deg, hsl(270 100% 60%), hsl(210 100% 55%));
+    --gradient-cyan-pink: linear-gradient(135deg, hsl(180 100% 50%), hsl(320 100% 60%));
+    --gradient-dark: linear-gradient(180deg, hsl(240 20% 3%), hsl(240 20% 8%));
+  }
+
+  .dark {
+    --background: 240 20% 3%;
+    --foreground: 210 40% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  ::selection {
+    background: hsl(270 100% 60% / 0.4);
+    color: white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(240 20% 5%);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, hsl(270 100% 60%), hsl(210 100% 55%));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, hsl(270 100% 70%), hsl(210 100% 65%));
+  }
+}
+
+@layer components {
+  /* Glassmorphism Card */
+  .glass-card {
+    @apply relative overflow-hidden rounded-2xl;
+    background: hsl(240 20% 8% / 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(240 20% 20% / 0.5);
+  }
+
+  .glass-card::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-500;
+    background: linear-gradient(135deg, hsl(270 100% 60% / 0.1), hsl(180 100% 50% / 0.1));
+  }
+
+  .glass-card:hover::before {
+    @apply opacity-100;
+  }
+
+  /* Neon Text */
+  .neon-text {
+    text-shadow: 
+      0 0 10px hsl(270 100% 60% / 0.8),
+      0 0 20px hsl(270 100% 60% / 0.6),
+      0 0 40px hsl(270 100% 60% / 0.4),
+      0 0 80px hsl(270 100% 60% / 0.2);
+  }
+
+  .neon-text-cyan {
+    text-shadow: 
+      0 0 10px hsl(180 100% 50% / 0.8),
+      0 0 20px hsl(180 100% 50% / 0.6),
+      0 0 40px hsl(180 100% 50% / 0.4);
+  }
+
+  .neon-text-pink {
+    text-shadow: 
+      0 0 10px hsl(320 100% 60% / 0.8),
+      0 0 20px hsl(320 100% 60% / 0.6),
+      0 0 40px hsl(320 100% 60% / 0.4);
+  }
+
+  /* Neon Glow Effects */
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+
+  .glow-secondary {
+    box-shadow: var(--glow-secondary);
+  }
+
+  .glow-accent {
+    box-shadow: var(--glow-accent);
+  }
+
+  .glow-tertiary {
+    box-shadow: var(--glow-tertiary);
+  }
+
+  .glow-intense {
+    box-shadow: var(--glow-intense);
+  }
+
+  /* Neon Border */
+  .neon-border {
+    @apply relative;
+    border: 1px solid transparent;
+    background-clip: padding-box;
+  }
+
+  .neon-border::before {
+    content: '';
+    @apply absolute -inset-px rounded-2xl -z-10;
+    background: var(--gradient-neon);
+    opacity: 0.5;
+    filter: blur(1px);
+  }
+
+  /* Animated Background Gradient */
+  .animated-gradient {
+    background: linear-gradient(
+      -45deg, 
+      hsl(270 100% 60% / 0.3), 
+      hsl(210 100% 55% / 0.3), 
+      hsl(180 100% 50% / 0.3), 
+      hsl(320 100% 60% / 0.3)
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Pulse Glow Animation */
+  .pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(270 100% 60% / 0.5), 0 0 40px hsl(270 100% 60% / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 30px hsl(270 100% 60% / 0.7), 0 0 60px hsl(270 100% 60% / 0.5);
+    }
+  }
+
+  /* Float Animation */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  /* Typing Cursor */
+  .typing-cursor::after {
+    content: '|';
+    @apply animate-pulse text-accent;
+  }
+
+  /* Grid Pattern Overlay */
+  .grid-pattern {
+    background-image: 
+      linear-gradient(hsl(270 100% 60% / 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(270 100% 60% / 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  /* Scan Line Effect */
+  .scan-lines::after {
+    content: '';
+    @apply absolute inset-0 pointer-events-none;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      hsl(0 0% 0% / 0.03) 2px,
+      hsl(0 0% 0% / 0.03) 4px
+    );
+  }
+
+  /* 3D Card Tilt */
+  .tilt-card {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  /* Progress Bar Glow */
+  .progress-glow {
+    box-shadow: 
+      0 0 10px currentColor,
+      0 0 20px currentColor;
+  }
+
+  /* Section Heading Style */
+  .section-heading {
+    @apply text-4xl md:text-5xl font-bold mb-4;
+    background: var(--gradient-neon);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Hover Scale */
+  .hover-scale {
+    @apply transition-transform duration-300;
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+
+  /* Link Underline Animation */
+  .link-glow {
+    @apply relative;
+  }
+
+  .link-glow::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300;
+    background: var(--gradient-neon);
+    box-shadow: 0 0 10px hsl(270 100% 60%);
+  }
+
+  .link-glow:hover::after {
+    @apply w-full;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: var(--gradient-neon);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-purple-blue {
+    background: var(--gradient-purple-blue);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-cyan-pink {
+    background: var(--gradient-cyan-pink);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .bg-gradient-neon {
+    background: var(--gradient-neon);
+  }
+
+  .bg-gradient-dark {
+    background: var(--gradient-dark);
+  }
+}
