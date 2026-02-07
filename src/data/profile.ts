@@ -83,11 +83,12 @@ export const profile = {
       status: "completed",
     },
     {
-      id: "2",
-      title: "Project Loading...",
-      description: "New project will be added here. Check back soon!",
-      techStack: ["Python"],
-      status: "coming-soon",
+      id: "studymate",
+      title: "Study Mate",
+      description: "An intelligent study assistant built with Streamlit and Google Gemini. Instantly generate comprehensive study guides, flashcards, MCQs, and PDF notes for any subject.",
+      techStack: ["Python", "Streamlit", "Google Gemini"],
+      githubLink: "https://github.com/amanshu999/studymate",
+      status: "completed",
     },
     {
       id: "3",
