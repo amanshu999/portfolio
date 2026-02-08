@@ -91,6 +91,15 @@ export const profile = {
       status: "completed",
     },
     {
+      id: "focus-list",
+      title: "Focus List",
+      description: "A comprehensive productivity tool combining a To-Do list with a Pomodoro timer. Features include Day Planner, Habit Tracker, Matrix View, and Ambient Sounds for focus.",
+      techStack: ["HTML", "CSS", "JavaScript"],
+      githubLink: "https://github.com/amanshu999/to-do-list-pomodoro",
+      liveLink: "https://xelotodo.vercel.app/",
+      status: "completed",
+    },
+    {
       id: "3",
       title: "Future Project",
       description: "Something incredible is brewing. Watch this space!",
