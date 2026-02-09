@@ -10,6 +10,7 @@ interface NeonButtonProps {
   onClick?: () => void;
   disabled?: boolean;
   type?: 'button' | 'submit' | 'reset';
+  'aria-label'?: string;
 }
 
 export const NeonButton = ({
@@ -20,7 +21,8 @@ export const NeonButton = ({
   className = '',
   onClick,
   disabled = false,
-  type = 'button'
+  type = 'button',
+  'aria-label': ariaLabel,
 }: NeonButtonProps) => {
   const baseStyles = `
     relative overflow-hidden font-orbitron font-semibold
@@ -66,6 +68,7 @@ export const NeonButton = ({
       onClick={onClick}
       disabled={disabled}
       type={type}
+      aria-label={ariaLabel}
     >
       {/* Shine effect */}
       <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full hover:translate-x-full transition-transform duration-700" />

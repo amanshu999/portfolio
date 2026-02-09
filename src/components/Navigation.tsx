@@ -19,7 +19,7 @@ export const Navigation = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-      
+
       // Determine active section
       const sections = navLinks.map(link => link.href.replace('#', ''));
       for (const section of sections.reverse()) {
@@ -62,6 +62,7 @@ export const Navigation = () => {
               onClick={() => scrollToSection('#hero')}
               whileHover={{ scale: 1.05 }}
               className="font-orbitron text-xl font-bold text-gradient cursor-pointer"
+              aria-label="Go to Home"
             >
               {profile.firstName.toUpperCase()}
             </motion.button>
@@ -75,11 +76,12 @@ export const Navigation = () => {
                   whileHover={{ scale: 1.1 }}
                   className={`
                     font-inter text-sm tracking-wide transition-all duration-300 cursor-pointer
-                    ${activeSection === link.href.replace('#', '') 
-                      ? 'text-primary' 
+                    ${activeSection === link.href.replace('#', '')
+                      ? 'text-primary'
                       : 'text-muted-foreground hover:text-foreground'
                     }
                   `}
+                  aria-label={`Scroll to ${link.name}`}
                 >
                   {link.name}
                   {activeSection === link.href.replace('#', '') && (
@@ -93,10 +95,11 @@ export const Navigation = () => {
             </div>
 
             {/* Mobile Menu Button */}
-            <motion.button 
+            <motion.button
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden p-2 text-foreground relative z-50"
+              aria-label="Toggle menu"
             >
               <AnimatePresence mode="wait">
                 {isMobileMenuOpen ? (
@@ -144,7 +147,7 @@ export const Navigation = () => {
               className="absolute inset-0 bg-background/95 backdrop-blur-xl"
               onClick={() => setIsMobileMenuOpen(false)}
             />
-            
+
             {/* Menu Content */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}
@@ -163,8 +166,8 @@ export const Navigation = () => {
                   onClick={() => scrollToSection(link.href)}
                   className={`
                     font-orbitron text-2xl font-bold tracking-wider transition-all duration-300
-                    ${activeSection === link.href.replace('#', '') 
-                      ? 'text-gradient' 
+                    ${activeSection === link.href.replace('#', '')
+                      ? 'text-gradient'
                       : 'text-muted-foreground hover:text-foreground'
                     }
                   `}

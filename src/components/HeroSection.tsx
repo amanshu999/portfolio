@@ -78,6 +78,7 @@ export const HeroSection = () => {
               variant="primary"
               size="lg"
               onClick={() => scrollToSection('skills')}
+              aria-label="View Skills"
             >
               View Skills
             </NeonButton>
@@ -86,6 +87,7 @@ export const HeroSection = () => {
               variant="outline"
               size="lg"
               onClick={() => scrollToSection('contact')}
+              aria-label="Contact Me"
             >
               Contact Me
             </NeonButton>
@@ -94,6 +96,7 @@ export const HeroSection = () => {
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Download Resume"
             >
               <NeonButton variant="outline" size="lg">
                 <FileText className="w-5 h-5" />
@@ -105,6 +108,7 @@ export const HeroSection = () => {
               href={profile.github}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Visit GitHub Profile"
             >
               <NeonButton variant="ghost" size="lg">
                 <Github className="w-5 h-5" />
