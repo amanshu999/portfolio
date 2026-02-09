@@ -16,7 +16,7 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>{profile.name} | Developer Portfolio</title>
+        <title>{profile.name}</title>
         <meta name="description" content={`${profile.name} - ${profile.taglines[0]}. ${profile.bio}`} />
         <meta name="keywords" content={`${profile.name}, developer, portfolio, ${profile.skills.map(s => s.name).join(', ')}`} />
         <meta property="og:title" content={`${profile.name} | Developer Portfolio`} />
