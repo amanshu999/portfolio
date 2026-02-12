@@ -19,7 +19,7 @@ const Index = () => {
         <title>{profile.name}</title>
         <meta name="description" content={`${profile.name} - ${profile.taglines[0]}. ${profile.bio}`} />
         <meta name="keywords" content={`${profile.name}, developer, portfolio, ${profile.skills.map(s => s.name).join(', ')}`} />
-        <meta property="og:title" content={`${profile.name} | Developer Portfolio`} />
+        <meta property="og:title" content={profile.name} />
         <meta property="og:description" content={profile.bio} />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://www.amanshu.in/" />
