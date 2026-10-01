@@ -39,13 +39,13 @@ export const profile = {
   lastName: "Sharma",
 
   // ✏️ Taglines (shown as rotating text in hero)
-  taglines: ["Computer Engineering Student", "Web Developer", "Python Programmer", "Creative Coder"],
+  taglines: ["B.Tech CSE Student", "Web Developer", "Python Programmer", "Creative Coder"],
 
   // ✏️ Bio (shown in hero section)
-  bio: "Passionate about creating innovative web experiences and exploring the intersection of technology and creativity. Currently pursuing my diploma while building projects that push boundaries.",
+  bio: "Passionate about creating innovative web experiences and exploring the intersection of technology and creativity. Currently pursuing B.Tech in Computer Science and Engineering (CSE) at Symbiosis Institute of Technology (SIT), Pune while building projects that push boundaries.",
 
   // ✏️ Education & Experience Summary
-  education: "Diploma in Computer Engineering",
+  education: "B.Tech in Computer Science and Engineering (CSE) - Symbiosis Institute of Technology (SIT), Pune",
   experience: "Fresher",
 
   // ✏️ Contact & Social Links
@@ -120,10 +120,10 @@ export const profile = {
     },
     {
       id: "1",
-      title: "Diploma in Computer Engineering",
-      subtitle: "Pursuing",
-      date: "Present",
-      description: "Learning core computer science concepts, programming fundamentals, and software development.",
+      title: "B.Tech in Computer Science and Engineering (CSE)",
+      subtitle: "Symbiosis Institute of Technology (SIT), Pune",
+      date: "2025 - 2029",
+      description: "Pursuing B.Tech in Computer Science and Engineering (Batch 2025–2029, Lateral entry in 2026).",
       type: "education",
     },
     {
