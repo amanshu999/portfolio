@@ -61,7 +61,7 @@ export const SkillsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto"
+          className="mt-16 grid grid-cols-2 sm:grid-cols-3 gap-6 max-w-2xl mx-auto"
         >
           {profile.skills.map((skill, index) => (
             <motion.div

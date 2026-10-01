@@ -68,6 +68,8 @@ export const profile = {
     { name: "CSS", level: 80 },
     { name: "JavaScript", level: 75 },
     { name: "Python", level: 70 },
+    { name: "C", level: 70 },
+    { name: "Java", level: 60 },
   ] as Skill[],
 
   // ✏️ PROJECTS - Add your projects here
@@ -111,28 +113,28 @@ export const profile = {
   // ✏️ TIMELINE - Education & Experience entries
   timeline: [
     {
-      id: "gfg-campus-mantri",
-      title: "Campus Mantri",
-      subtitle: "GeeksforGeeks",
-      date: "Jan 2026 - Present",
-      description: "Selected as the Official Representative (Campus Mantri) to promote coding culture, organize events, and act as a brand ambassador for GeeksforGeeks at Govt Polytechnic College.",
-      type: "experience",
-    },
-    {
-      id: "1",
-      title: "B.Tech in Computer Science and Engineering (CSE)",
-      subtitle: "Symbiosis Institute of Technology (SIT), Pune",
-      date: "2025 - 2029",
-      description: "Pursuing B.Tech in Computer Science and Engineering (Batch 2025–2029, Lateral entry in 2026).",
+      id: "diploma-polytechnic",
+      title: "Diploma in Computer Engineering",
+      subtitle: "Government Polytechnic College",
+      date: "2023 – 2026",
+      description: "Completed Diploma in Computer Engineering.",
       type: "education",
     },
     {
-      id: "2",
-      title: "Fresher",
-      subtitle: "Ready to Start",
-      date: "2024",
-      description: "Eager to apply my skills in a professional environment and contribute to innovative projects.",
+      id: "gfg-campus-mantri",
+      title: "Campus Mantri",
+      subtitle: "GeeksforGeeks",
+      date: "January–June 2026",
+      description: "Represented GeeksforGeeks on campus and participated in campus community activities.",
       type: "experience",
+    },
+    {
+      id: "btech-sit-pune",
+      title: "B.Tech in Computer Science and Engineering",
+      subtitle: "Symbiosis Institute of Technology (SIT), Pune",
+      date: "2025 – 2029",
+      description: "Currently Pursuing B.Tech in Computer Science and Engineering (Lateral Entry, 2026).",
+      type: "education",
     },
   ] as TimelineItem[],
 };
